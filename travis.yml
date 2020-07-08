@@ -7,4 +7,4 @@ addons:
         - libcunit1
         - libcunit1-dev
 
-script: make tests
+script: make tests && ./config.out
