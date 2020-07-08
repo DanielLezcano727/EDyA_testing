@@ -1,7 +1,7 @@
 #include "hashTest.h"
 
 void test_prueba_1(void){
-    CU_ASSERT_EQUAL(1,2);
+    CU_ASSERT_EQUAL(1,1);
 }
 
 void test_prueba_2(void){

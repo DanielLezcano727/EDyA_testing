@@ -34,7 +34,6 @@ int correr_tests(char* nombre_suite, TipoFunciones funciones[], char *nombre_fun
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();
-    CU_cleanup_registry();
     
     return CU_get_number_of_tests_failed();
 }
@@ -76,5 +75,8 @@ int main(){
     int failed_test = 0;
     failed_test += hash_suite();
     failed_test += tree_suite();
+
+    CU_cleanup_registry();
+
     return failed_test;
 }

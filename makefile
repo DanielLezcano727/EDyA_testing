@@ -8,8 +8,8 @@ SALIDA = salida
 
 all: main tests
 
-tests: config.c $(TEST1).o $(TEST_DIR)$(TEST2).o
-	gcc -o config.out -lcunit config.c $(TEST1).o $(TEST2).o
+tests: testing/config.c $(TEST1).o $(TEST2).o
+	gcc -o config.out testing/config.c $(TEST1).o $(TEST2).o -lcunit
 
 $(TEST1): $(TEST1).c $(TEST1).h
 	gcc -o $(TEST1).out $(TEST1).c
@@ -23,3 +23,6 @@ $(TEST2): $(TEST2).c $(TEST2).h
 
 #$(ESTRUCT1): $(ESTRUCT1).h $(ESTRUCT1).c
 #	gcc -c -Wall -Werror $(ESTRUCT1).c
+
+clean:
+	rm config.out testing/*.o
