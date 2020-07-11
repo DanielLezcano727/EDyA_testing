@@ -1,3 +1,2 @@
 # EDyA_testing
-
-## Pasos
+http://cunit.sourceforge.net/doc/writing_tests.html
