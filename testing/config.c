@@ -1,6 +1,7 @@
 #include <CUnit/CUnit.h>
 #include "hashTest.h"
 #include "treeTest.h"
+#include "itreeTest.h"
 
 typedef void (*TipoFunciones) (void);
 
@@ -70,11 +71,38 @@ int tree_suite(){
     return correr_tests("Tree suite", funciones, nombre_funciones, cant_funciones);
 }
 
+int itree_suite(){
+    TipoFunciones funciones[] = {
+        test_altura_itree,
+        test_altura_balanceo_simple_izq,
+        test_altura_balanceo_simple_der,
+        test_altura_balanceo_doble_izq,
+        test_altura_balanceo_doble_der,
+        test_altura_eliminacion_simple,
+        test_altura_eliminacion_doble
+    };
+
+    char *nombre_funciones[] = {
+        "Test altura",
+        "Test altura despues de balanceo simple a la izquierda",
+        "Test altura despues de balanceo simple a la derecha",
+        "Test altura despues de balanceo doble a la izquierda",
+        "Test altura despues de balanceo doble a la derecha",
+        "Test altura despues de eliminacion simple",
+        "Test altura despues de eliminacion doble"
+    };
+
+    int cant_funciones = 7;
+    
+    return correr_tests("Arbol de intervalos", funciones, nombre_funciones, cant_funciones);
+}
+
 int main(){
 
     int failed_test = 0;
     failed_test += hash_suite();
     failed_test += tree_suite();
+    failed_test += itree_suite();
 
     CU_cleanup_registry();
 
