@@ -259,6 +259,62 @@ void test_altura_eliminacion_simple(void) {
     CU_ASSERT_EQUAL(itree_altura(raiz->right->right), 0);
     CU_ASSERT_EQUAL(itree_altura(raiz->left), 1);
 
+    raiz = NULL;
+    intervalo->bgn = 9;
+    intervalo->end = 9;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 5;
+    intervalo->end = 5;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 10;
+    intervalo->end = 10; 
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 0;
+    intervalo->end = 0;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 6;
+    intervalo->end = 6;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 11;
+    intervalo->end = 11;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = -1;
+    intervalo->end = -1;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 1;
+    intervalo->end = 1;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 10;
+    intervalo->end = 10; 
+    raiz = itree_eliminar(raiz, intervalo);
+
+    CU_ASSERT_EQUAL(itree_altura(raiz), 2);
+    CU_ASSERT_EQUAL(itree_altura(raiz->right), 1);
+    CU_ASSERT_EQUAL(itree_altura(raiz->right->right), 0);
+    CU_ASSERT_EQUAL(itree_altura(raiz->left), 1);
+
+    raiz = NULL;
+    intervalo->bgn = 9;
+    intervalo->end = 9;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 5;
+    intervalo->end = 5;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 10;
+    intervalo->end = 10; 
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 11;
+    intervalo->end = 11;
+    raiz = itree_insertar(raiz, intervalo);
+    intervalo->bgn = 10;
+    intervalo->end = 10; 
+    raiz = itree_eliminar(raiz, intervalo);
+
+    CU_ASSERT_EQUAL(itree_altura(raiz), 1);
+    CU_ASSERT_EQUAL(itree_altura(raiz->right), 0);
+    CU_ASSERT_EQUAL(itree_altura(raiz->right->right), -1);
+    CU_ASSERT_EQUAL(itree_altura(raiz->left), 0);
+
 }
 
 void test_altura_eliminacion_doble(void) {
